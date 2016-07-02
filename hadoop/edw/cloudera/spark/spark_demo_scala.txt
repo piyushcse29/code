@@ -276,7 +276,7 @@ val ordersByStatus = ordersMap.combineByKey(value => 1, (acc: Int, value: Int) =
 #aggregateByKey can be used when reduce logic and combine logic is different
 #Also type of input data and output data need not be same
 val ordersMap = ordersRDD.map(rec =>  (rec.split(",")(3), rec))
-val ordersByStatus = ordersMap.aggregateByKey(0, (acc, value) => acc+1, (acc, value) => acc+value)
+val ordersByStatus = ordersMap.aggregateByKey(0)( (acc, value) => acc+1, (acc, value) => acc+value)
 ordersByStatus.collect().foreach(println)
 
 #Number of orders by order date and order status
