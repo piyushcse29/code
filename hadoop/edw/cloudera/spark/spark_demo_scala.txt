@@ -331,7 +331,7 @@ revenuePerDay.collect().foreach(println)
 
 val avgRevenuePerDay = revenuePerDay.map(x => (x._1, x._2._1/x._2._2))
 
-#Customer id with max revenue
+#Customer id with max revenue per day
 val ordersRDD = sc.textFile("/user/cloudera/sqoop_import/orders")
 val orderItemsRDD = sc.textFile("/user/cloudera/sqoop_import/order_items")
 
